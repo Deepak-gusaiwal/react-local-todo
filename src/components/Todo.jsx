@@ -14,7 +14,7 @@ const Todo = ({ todo }) => {
         completed ? "bg-green-400" : "bg-red-400"
       } rounded py-1 px-2 flex justify-between`}
     >
-      <h3 className="font-bold">{todoTxt}</h3>
+      <h3 className={`font-bold ${completed ? "line-through":""}`}>{todoTxt}</h3>
       <MdDeleteForever
         className="ml-auto cursor-pointer hover:text-white"
         size="1.5rem"

@@ -11,10 +11,17 @@ export const TodoProvider = ({ children }) => {
     const perfectTodo = { ...todo, id: Date.now(), completed: false };
     setTodos((prev) => [perfectTodo, ...prev]);
   };
-  const updateTodo = (id, todo) => {};
-  const deleteTodo = (id, todo) => {};
+  const updateTodo = (id, todo) => {
+
+  };
+  
+  const deleteTodo = (id) => {
+    const filteredTodos = todos.filter((todo) => {
+      return todo.id !== id;
+    });
+    setTodos(filteredTodos);
+  };
   const completeTodo = (id) => {
-    console.log('complete the todo')
     const filteredTodos = todos.map((todo) => {
       return todo.id === id ? { ...todo, completed: true } : todo;
     });
