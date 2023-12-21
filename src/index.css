@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .baseContainer {
+    @apply max-w-[1400px] mx-auto py-1 px-2 w-full;
+  }
+  .bg {
+    @apply bg-primary text-black dark:bg-blue-900 dark:text-white;
+  }
+  .navLink{
+    @apply hover:bg-white hover:text-black rounded border px-2 py-1 duration-500
+  }
+}
