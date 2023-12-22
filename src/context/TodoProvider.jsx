@@ -4,7 +4,7 @@ const todoContext = createContext();
 
 export const TodoProvider = ({ children }) => {
   const [todos, setTodos] = useState([
-    { id: 1, todoTxt: "Todo msg", completed: false },
+    // { id: 1, todoTxt: "Todo msg", completed: false }
   ]);
   const addTodo = (todo) => {
     const perfectTodo = { ...todo, id: Date.now(), completed: false };
