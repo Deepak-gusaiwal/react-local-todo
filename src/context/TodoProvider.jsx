@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const todoContext = createContext();
 
@@ -6,7 +6,6 @@ export const TodoProvider = ({ children }) => {
   const [todos, setTodos] = useState([
     { id: 1, todoTxt: "Todo msg", completed: false },
   ]);
-  console.log("todos are", todos);
   const addTodo = (todo) => {
     const perfectTodo = { ...todo, id: Date.now(), completed: false };
     setTodos((prev) => [perfectTodo, ...prev]);
@@ -30,6 +29,19 @@ export const TodoProvider = ({ children }) => {
     });
     setTodos(filteredTodos);
   };
+
+  // get todos from the local Storage
+  useEffect(() => {
+      let localTodos = JSON.parse(localStorage.getItem("todos"));
+      if (localTodos && localTodos.length > 0) {
+        setTodos(localTodos);
+      }
+  }, []);
+
+  //set todos in the localstorage
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
   return (
     <todoContext.Provider
       value={{ todos, setTodos, addTodo, updateTodo, deleteTodo, completeTodo }}

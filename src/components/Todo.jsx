@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {  useState } from "react";
 import { MdDeleteForever, MdEditDocument, MdCancel } from "react-icons/md";
 import { HiOutlineSave } from "react-icons/hi";
 import { ImStarFull } from "react-icons/im";
@@ -30,6 +30,8 @@ const Todo = ({ todo }) => {
     toast.success("your note updated successfully");
     setIsUpdating(false);
   };
+
+
   return (
     <div className="grid-item">
       {!isUpdating ? (
